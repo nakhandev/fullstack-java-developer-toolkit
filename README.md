@@ -67,8 +67,8 @@ Full details in [context.md](context.md)
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/nakhandev/fullstack-java-toolkit.git
-cd fullstack-java-toolkit
+git clone https://github.com/nakhandev/fullstack-java-developer-toolkit.git
+cd fullstack-java-developer-toolkit
 ```
 
 ### 2️⃣ Run setup script

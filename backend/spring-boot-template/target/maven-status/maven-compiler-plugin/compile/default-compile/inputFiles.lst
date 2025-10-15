@@ -1,0 +1,6 @@
+/home/nakhan/VSCODE/IDEAS/fullstack-java-developer-toolkit/backend/spring-boot-template/src/main/java/org/nakhan/entity/User.java
+/home/nakhan/VSCODE/IDEAS/fullstack-java-developer-toolkit/backend/spring-boot-template/src/main/java/org/nakhan/service/UserService.java
+/home/nakhan/VSCODE/IDEAS/fullstack-java-developer-toolkit/backend/spring-boot-template/src/main/java/org/nakhan/SpringBootTemplateApplication.java
+/home/nakhan/VSCODE/IDEAS/fullstack-java-developer-toolkit/backend/spring-boot-template/src/main/java/org/nakhan/repository/UserRepository.java
+/home/nakhan/VSCODE/IDEAS/fullstack-java-developer-toolkit/backend/spring-boot-template/src/main/java/org/nakhan/dto/UserDto.java
+/home/nakhan/VSCODE/IDEAS/fullstack-java-developer-toolkit/backend/spring-boot-template/src/main/java/org/nakhan/controller/UserController.java

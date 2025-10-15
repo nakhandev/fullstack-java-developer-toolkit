@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:7.0-alpine
+    container_name: fullstack-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes --requirepass "your-redis-password"
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+      - ./redis.conf:/usr/local/etc/redis/redis.conf:ro
+    networks:
+      - fullstack-network
+
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: fullstack-redis-commander
+    restart: unless-stopped
+    environment:
+      REDIS_HOSTS: local:redis:6379:0:your-redis-password
+    ports:
+      - "8082:8082"
+    networks:
+      - fullstack-network
+    depends_on:
+      - redis
+
+volumes:
+  redis_data:
+    driver: local
+
+networks:
+  fullstack-network:
+    driver: bridge

@@ -1,0 +1,151 @@
+version: '3.8'
+
+services:
+  # Backend - Spring Boot Application
+  backend:
+    build:
+      context: ./backend/spring-boot-template
+      dockerfile: Dockerfile
+    container_name: fullstack-backend
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/fullstack_dev
+      - SPRING_DATASOURCE_USERNAME=fullstack_user
+      - SPRING_DATASOURCE_PASSWORD=fullstack_password
+      - REDIS_URL=redis://redis:6379
+      - REDIS_PASSWORD=your-redis-password
+    networks:
+      - fullstack-network
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./backend/spring-boot-template/logs:/app/logs
+
+  # Frontend - React Application
+  frontend:
+    build:
+      context: ./frontend/react-vite-template
+      dockerfile: Dockerfile
+    container_name: fullstack-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    networks:
+      - fullstack-network
+    depends_on:
+      - backend
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: fullstack-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: fullstack_dev
+      POSTGRES_USER: fullstack_user
+      POSTGRES_PASSWORD: fullstack_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/postgres/init-scripts:/docker-entrypoint-initdb.d
+    networks:
+      - fullstack-network
+
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: fullstack-mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+      MONGO_INITDB_DATABASE: fullstack_dev
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+      - ./database/mongo/init-scripts:/docker-entrypoint-initdb.d:ro
+    networks:
+      - fullstack-network
+
+  # Redis Cache
+  redis:
+    image: redis:7.0-alpine
+    container_name: fullstack-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes --requirepass "your-redis-password"
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+      - ./database/redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
+    networks:
+      - fullstack-network
+
+  # PgAdmin - PostgreSQL Management
+  pgadmin:
+    image: dpage/pgadmin4:7
+    container_name: fullstack-pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@fullstack.local
+      PGADMIN_DEFAULT_PASSWORD: admin123
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - fullstack-network
+    depends_on:
+      - postgres
+
+  # Mongo Express - MongoDB Management
+  mongo-express:
+    image: mongo-express:1.0.0-alpha
+    container_name: fullstack-mongo-express
+    restart: unless-stopped
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: password123
+      ME_CONFIG_MONGODB_URL: mongodb://admin:password123@mongodb:27017/
+      ME_CONFIG_BASICAUTH: false
+    ports:
+      - "8081:8081"
+    networks:
+      - fullstack-network
+    depends_on:
+      - mongodb
+
+  # Redis Commander - Redis Management
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: fullstack-redis-commander
+    restart: unless-stopped
+    environment:
+      REDIS_HOSTS: local:redis:6379:0:your-redis-password
+    ports:
+      - "8082:8082"
+    networks:
+      - fullstack-network
+    depends_on:
+      - redis
+
+volumes:
+  postgres_data:
+    driver: local
+  mongodb_data:
+    driver: local
+  redis_data:
+    driver: local
+  pgadmin_data:
+    driver: local
+
+networks:
+  fullstack-network:
+    driver: bridge

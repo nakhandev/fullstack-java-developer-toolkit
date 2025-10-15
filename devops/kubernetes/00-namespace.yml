@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: fullstack-java-toolkit
+  labels:
+    name: fullstack-java-toolkit
+    app: fullstack-java-toolkit

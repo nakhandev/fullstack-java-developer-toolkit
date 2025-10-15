@@ -1,0 +1,535 @@
+# Full Stack Java Developer Toolkit - .gitignore
+# Comprehensive ignore file for Java, Node.js, Docker, and database projects
+
+# ==============================================================================
+# Java & Maven
+# ==============================================================================
+target/
+*.jar
+*.war
+*.ear
+*.nar
+.mvn/
+mvnw
+mvnw.cmd
+.mvn/wrapper/maven-wrapper.jar
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.properties
+
+# Compiled class files
+*.class
+*.log
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Virtual machine crash logs
+hs_err_pid*
+replay_pid*
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# NetBeans
+nb-configuration.xml
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# OS X
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ==============================================================================
+# Node.js & npm
+# ==============================================================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Grunt intermediate storage
+.grunt
+
+# Bower dependency directory
+bower_components
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons
+build/Release
+
+# Dependency directories
+jspm_packages/
+
+# TypeScript v1 declaration files
+typings/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# Next.js build output
+.next
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Gatsby files
+.cache/
+public
+
+# Storybook build outputs
+.out
+.storybook-out
+
+# Temporary folders
+tmp/
+temp/
+
+# Logs
+logs
+*.log
+
+# ==============================================================================
+# Docker
+# ==============================================================================
+.docker/
+docker-compose.override.yml
+docker-compose.*.yml
+
+# Container data
+**/data/
+**/volumes/
+
+# Docker Compose
+.docker/
+
+# ==============================================================================
+# Databases
+# ==============================================================================
+
+# PostgreSQL
+**/data/postgres/
+**/postgres-data/
+*.db
+*.sqlite
+*.sqlite3
+
+# MongoDB
+**/data/mongo/
+**/mongo-data/
+**/data/db/
+
+# Redis
+**/data/redis/
+**/redis-data/
+dump.rdb
+
+# Database logs
+*.log
+**/logs/
+
+# ==============================================================================
+# Testing
+# ==============================================================================
+
+# Test coverage reports
+coverage/
+.nyc_output/
+.coverage/
+coverage-final.json
+
+# Test results
+test-results/
+junit.xml
+test-output/
+
+# Karate
+target/karate-reports/
+
+# ==============================================================================
+# IDE & Editors
+# ==============================================================================
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# SublimeText
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# ==============================================================================
+# Operating System Files
+# ==============================================================================
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+
+# ==============================================================================
+# Application Specific
+# ==============================================================================
+
+# Application logs
+logs/
+*.log
+**/logs/
+app.log
+spring.log
+catalina.out
+
+# Configuration files that may contain sensitive data
+.env
+.env.local
+.env.production
+.env.staging
+.env.development
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# Cache directories
+.cache/
+**/cache/
+**/tmp/
+
+# Generated files
+generated/
+out/
+output/
+
+# Documentation builds
+docs/_build/
+docs/build/
+
+# ==============================================================================
+# Security & Secrets
+# ==============================================================================
+
+# SSL certificates
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+
+# API keys and secrets
+secrets/
+*.secret
+*.key
+
+# ==============================================================================
+# Build and Distribution
+# ==============================================================================
+
+# Distribution / packaging
+dist/
+build/
+out/
+output/
+target/
+
+# Package managers
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ==============================================================================
+# Version Control
+# ==============================================================================
+
+# Git
+.git/
+.gitattributes.local
+
+# SVN
+.svn/
+
+# Mercurial
+.hg/
+
+# CVS
+CVS/
+
+# ==============================================================================
+# Project Specific
+# ==============================================================================
+
+# Full Stack Java Developer Toolkit specific
+**/node_modules/
+**/target/
+**/dist/
+**/build/
+**/.env
+**/logs/
+**/*.log
+
+# Database volumes
+**/postgres-data/
+**/mongo-data/
+**/redis-data/
+
+# IDE workspace files
+**/.idea/
+**/*.iml
+**/.vscode/
+**/.project
+**/.classpath
+
+# OS generated files
+**/Thumbs.db
+**/.DS_Store
+
+# Temporary files
+**/*.tmp
+**/*.temp
+**/*~
+
+# Backup files
+**/*.bak
+**/*.backup
+
+# Documentation builds
+**/docs/_build/
+**/docs/build/
+**/site/
+
+# Coverage reports
+**/coverage/
+**/*.lcov
+**/target/site/jacoco/
+
+# Test reports
+**/test-results/
+**/surefire-reports/
+**/failsafe-reports/
+
+# Docker
+**/.docker/
+**/docker-compose.override.yml
+
+# NPM
+**/package-lock.json
+**/yarn.lock
+
+# Maven
+**/pom.xml.versionsBackup
+**/pom.xml.tag
+**/pom.xml.releaseBackup
+**/pom.xml.next
+**/release.properties
+
+# Gradle (if used)
+.gradle/
+build/
+
+# Spring Boot
+spring.log
+catalina.out
+
+# Application specific logs
+**/logs/
+**/*-spring.log
+**/*-catalina.out
+
+# ==============================================================================
+# Exception: Keep these files
+# ==============================================================================
+
+# Source code (DO NOT IGNORE)
+!src/
+!**/src/**
+
+# Documentation (DO NOT IGNORE)
+!README.md
+!**/README.md
+!docs/
+!**/docs/**
+
+# Configuration files (DO NOT IGNORE)
+!**/src/main/resources/
+!**/application.properties
+!**/application.yml
+!**/application-*.properties
+!**/application-*.yml
+
+# Docker files (DO NOT IGNORE)
+!Dockerfile
+!**/Dockerfile
+!docker-compose.yml
+!**/docker-compose.yml
+
+# Package files (DO NOT IGNORE)
+!package.json
+!pom.xml
+
+# License files (DO NOT IGNORE)
+!LICENSE
+!**/LICENSE
+
+# Documentation source (DO NOT IGNORE)
+!**/*.md
+!**/*.adoc
+!**/*.txt
+
+# Configuration templates (DO NOT IGNORE)
+!**/*.template
+!**/*.tpl
+!**/*.conf
+!**/*.ini
+!**/*.properties
+!**/*.yml
+!**/*.yaml
+
+# Scripts (DO NOT IGNORE)
+!scripts/
+!**/scripts/**
+
+# Test source files (DO NOT IGNORE)
+!**/src/test/**
+
+# ==============================================================================
+# Final Notes
+# ==============================================================================
+#
+# This .gitignore file is designed to be comprehensive for full-stack projects
+# using Java (Spring Boot), Node.js (React), Docker, and databases.
+#
+# To customize for your specific needs:
+# 1. Add project-specific patterns
+# 2. Remove unnecessary sections if not using certain technologies
+# 3. Review and modify as your project evolves
+#
+# Remember: It's easier to ignore too much than too little.
+# You can always use `git add -f <file>` to force-add ignored files when needed.
+#
+# ==============================================================================
